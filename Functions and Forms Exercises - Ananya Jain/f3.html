@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Functions and Forms 3</title>
+          <style>
+			h3 {
+				color: #099;
+				font-size: 30px;
+				text-align: center;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+    	<script>
+			alert("Welcome to Math Question Generator!");
+			
+			var a, b, mathSymbol
+			
+			a=Math.floor(10 * Math.random() + 1);
+			b=Math.floor(10 * Math.random() + 1);
+			mathSymbol=Math.floor(4 * Math.random() + 1);
+			
+			function mathQuestion  () {
+				if (mathSymbol==1) {
+					return a + "+" + b
+				} else if (mathSymbol==2) {
+					return a + "-" + b
+				} else if (mathSymbol==3) {
+					return a + "*" + b
+				} else if (mathSymbol==4) {
+					return a + "/" + b 
+				}
+			}
+			
+			document.write("<h3>Math Question Generator</h3>");
+			document.write("The math question is: " + mathQuestion());
+		</script>
+	</body>
+</html>

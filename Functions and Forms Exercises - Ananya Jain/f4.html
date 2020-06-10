@@ -1,0 +1,103 @@
+<html>
+	<head>
+    	<title>Functions and Forms 4</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 30px;
+				text-align: center;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 20px;
+				text-align: center;
+				background-color:#EAEAEA;
+			}
+			button {
+				font-size: 20px;
+				border: 2px solid #00B9B9;
+				background-color: #00B9B9;
+				color: #FFFFFF;
+				border-radius: 8px;
+			}
+			button:hover {
+				border: 2px solid #099;
+				background-color: #099;
+				font-size: 20px;
+			}
+			input {
+				font-size: 15px;
+				width: 20%;
+				height: 4%
+			}
+		</style>
+    </head>
+    <body>
+    	<script>
+			alert("Hello! Welcome to Rectangle Calculations Calculator! Here you will be able to calculate a rectangle's area, perimeter, length of the diagonal, the midpoint of the width and the midpoint of the length! Enjoy!");
+			
+			function recArea() {
+				var l = document.getElementById("myLength").value;
+				var w = document.getElementById("myWidth").value;
+				document.getElementById("areaParagraph").innerHTML = l*w;
+			}
+			
+			function recPerimeter() {
+				var l = document.getElementById("myLength").value;
+				var w = document.getElementById("myWidth").value;
+				document.getElementById("perimeterParagraph").innerHTML = 2*l + 2*w;
+			}
+			
+			function recDiagonal() {
+				var l = document.getElementById("myLength").value;
+				var w = document.getElementById("myWidth").value;
+				document.getElementById("diagonalParagraph").innerHTML = Math.sqrt(w*w + l*l);
+			}
+			
+			function widthMidpoint() {
+				var l = document.getElementById("myLength").value;
+				var w = document.getElementById("myWidth").value;
+				document.getElementById("widthMidpointParagraph").innerHTML = w/2;
+			}
+			
+			function lengthMidpoint() {
+				var l = document.getElementById("myLength").value;
+				var w = document.getElementById("myWidth").value;
+				document.getElementById("lengthMidpointParagraph").innerHTML = l/2;
+			}		
+		</script>
+        
+        <form>
+        	<h3>Rectangle Calculations</h3>
+        	<b>Length</b><br>
+            <input type="text" id="myLength" value="Enter value">
+            <br><br>
+            <b>Width</b><br>
+            <input type="text" id="myWidth" value="Enter value">
+            <br><br>
+            <center>
+            <table>
+            	<tr>
+            		<td><button type="button" onClick="recArea()">Calculate Area</button></td>
+                    <td><button type="button" onClick="recPerimeter()">Calculate Perimeter</button></td>
+                    <td><button type="button" onClick="recDiagonal()">Calculate Length of Diagonal</button></td>
+                    <td><button type="button" onClick="widthMidpoint()">Calculate Width Midpoint</button></td>
+                    <td><button type="button" onClick="lengthMidpoint()">Calculate Length Midpoint</button></td>
+                </tr>
+            </table>
+            </center>
+        </form>
+        
+       	<br>
+        <b>The area is:</b>
+        <p id="areaParagraph"></p>
+        <b>The perimeter is:</b>
+        <p id="perimeterParagraph"></p>
+        <b>The length of the diagonal is:</b>
+        <p id="diagonalParagraph"></p>
+        <b>The midpoint of the width is:</b>
+        <p id="widthMidpointParagraph"></p>
+       	<b>The midpoint of the length is:</b>
+        <p id="lengthMidpointParagraph"></p>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Functions and Forms 2</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 30px;
+				text-align: center;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+    	<script>
+			alert("Welcome to the Secret Word Generator!");
+			
+			function secretWord(word) {
+				var word=Math.floor(4 * Math.random() + 1)
+				if (word == 1) {
+					return "blue";
+				} else if (word == 2) {
+					return "green";
+				} else if (word == 3) {
+					return "red";
+				} else {
+					return "orange";
+				}
+			}
+			
+			document.write("<h3>Secret Word Generator</h3>");
+			document.write("The secret word is " + secretWord() + ".");
+		</script>
+	</body>
+</html>

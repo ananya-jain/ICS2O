@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<title>Functions and Forms 5</title>
+	</head>
+
+	<body>
+    	 <script>
+			function myForm() {
+				var firstName = document.getElementById("myFirstName").value;
+				var lastName = document.getElementById("myLastName").value;
+				
+				var maleChecked = document.getElementById("male").checked;
+				var femaleChecked = document.getElementById("female").checked;
+				var otherChecked = document.getElementById("other").checked;
+					if (maleChecked == true) {
+						var gender = "male";
+					} else if (femaleChecked == true) {
+						var gender = "female";
+					} else if (otherChecked == true) {
+						var gender = "other";
+					}
+					
+				var age = document.getElementById("myAge").value;
+				
+				var birthDate = document.getElementById("birthDate").value;
+				
+				var grade9Checked = document.getElementById("grade9").checked;
+				var grade10Checked = document.getElementById("grade10").checked;
+				var grade11Checked = document.getElementById("grade11").checked;
+				var grade12Checked = document.getElementById("grade12").checked;
+					if (grade9Checked == true) {
+						var grade = "Grade 9";
+					} else if (grade10Checked == true) {
+						var grade = "Grade 10";
+					} else if (grade11Checked == true) {
+						var grade = "Grade 11";
+					} else if (grade12Checked == true) {
+						var grade = "Grade 12";
+					}
+					
+				var hosaEvent = document.getElementById("myEvent").value;
+				
+				var colour = document.getElementById("myColour").value;
+				
+				var email = document.getElementById("myEmail").value;
+				
+				var password = document.getElementById("myPassword").value;
+				
+				var telephoneNumber = document.getElementById("myPhoneNumber").value;
+				
+				var questions = document.getElementById("myQuestions").value;
+				
+				document.write("<center><h3>Thank you! Your registration is complete!</h3>")
+				document.write("<h4>Here are your answers:</h4>");
+				document.write("Your name is: " + firstName + " " + lastName);
+				document.write("<br>Your gender is: " + gender);
+				document.write("<br>Your age is: " + age);
+				document.write("<br>Your date of birth is: " + birthDate);
+				document.write("<br> You are in: " + grade);
+				document.write("<br>The event you wish to participate in is: " + hosaEvent);
+				document.write("<br>The colour you picked for the HOSA hoodie is: " + colour);
+				document.write("<br>Your email is: " + email);
+				document.write("<br>Your password is: " + password);
+				document.write("<br>Your phone number is: " + telephoneNumber);
+				document.write("<br>Your questions are: " + questions + "</center>");				
+			}
+		</script>
+        
+        <form>
+      		<center><h3>HOSA Registration Form</h3></center>
+            
+            <center>
+            <table>
+            	<tr>
+                	<td>Name:</td>
+                    <td>
+                    	<input type="text" id="myFirstName" placeholder="Enter first name">
+            			<input type="text" id="myLastName" placeholder="Enter last name"><br>
+                    </td>
+                </tr>
+                <tr>
+                	<td valign="top">Gender:</td>
+                    <td>
+                    	<input type="radio" name="gender" value="male" id="male"> Male<br>
+  						<input type="radio" name="gender" value="female" id="female"> Female<br>
+  						<input type="radio" name="gender" value="other" id="other"> Other
+                    </td>
+                </tr>
+                <tr>
+                	<td>Age<br>(pick your age between 13 and 18):</td>
+                    <td>
+                    	<input type="range" id="myAge" name="age" min="13" max="18">
+                    </td>
+                 </tr>
+                 <tr>
+                 	<td>Date of birth:</td>
+                    <td>
+                    	<input type="date" id="birthDate" name="bday">
+                    </td>
+                 </tr>
+                 <tr>
+                 	<td valign="top">Grade:</td>
+                    <td>
+                    	<input type="checkbox" name="grade9" value="Grade 9" id="grade9"> Grade 9<br>
+  						<input type="checkbox" name="grade10" value="Grade 10" id="grade10"> Grade 10<br>
+                		<input type="checkbox" name="grade11" value="Grade 11" id="grade11"> Grade 11<br>
+  						<input type="checkbox" name="grade12" value="Grade 12" id="grade12"> Grade 12
+                    </td>
+                 </tr>
+                 <tr>
+                 	<td>Event:</td>
+                    <td>
+                    	<select name="events" id="myEvent">
+                			<option value="Behavioral Health">Behavioral Health</option>
+                    		<option value="Dental Science">Dental Science</option>
+                    		<option value="Pathophysiology">Pathophysiology</option>
+                    		<option value="Pharmacology">Pharmacology</option>
+                    		<option value="Pathophysiology">Pathophysiology</option>
+                    		<option value="Sports Medecine">Sports Medecine</option>
+                    		<option value="Forensic Science">Forensic Science</option>
+                    		<option value="Medical Innovation">Medical Innovation</option>
+                		</select>
+                    </td>
+                 </tr>
+                 <tr>
+                 	<td>HOSA Hoodie Colour<br>(Pick a colour for the HOSA Hoodie):</td>
+                    <td>
+                    	<input type="color" name="hoodie colour" id="myColour">
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td>Email:</td>
+                    <td>
+                    	<input type="email" name="email" id="myEmail" placeholder="Enter your email">
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td>Password:</td>
+                    <td>
+                    	<input type="password" name"psw" id="myPassword" placeholder="Enter your password">
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td>Telephone Number:</td>
+                    <td>
+                    	<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="myPhoneNumber" placeholder="ex. 613-333-8888">
+                    </td>
+                  </tr>
+                  <tr>
+                  	<td valign="top">Any questions?</td>
+                    <td>
+                    	<textarea name="questions" rows="10" cols="30" id="myQuestions" placeholder="Enter your questions"></textarea>
+                    </td>
+                  </tr>
+            </table>
+            </center>
+            
+            <center>
+            <br>  
+            <button type="button" onClick="myForm()">Submit</button>
+            <input type="reset">
+            </center>
+        </form>
+	</body>
+</html>

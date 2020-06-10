@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Functions and Forms 1</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 30px;
+				text-align: center;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+    	<script>
+			alert("Welcome to Circle Area Calculator!");
+			
+			function circleArea (radius) {
+				return Math.PI * radius * radius
+			}
+			
+			var radius;
+			
+			radius=prompt("Enter the radius of the circle.");
+			
+			document.write("<h3>Circle Area Calculator</h3>");
+			document.write("The radius is " + radius + ".");
+			document.write("<br>The area of the circle is " + circleArea(radius) + ".");
+		</script>
+	</body>
+</html>
