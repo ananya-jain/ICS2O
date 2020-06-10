@@ -1,0 +1,195 @@
+.container {
+  width: auto;
+}
+
+.header {
+  width: auto;
+  padding: 20px;
+  height: auto;
+  background-color: #558C89;
+}
+
+.nav {
+  width: auto;
+  background-color: #74AFAD;
+}
+
+/*This is to seperate the Contact Us from the rest of the information on the website*/
+.navright {
+  float: right;
+}
+
+/*This is to seperate the Contact Us from the rest of the information on the website*/
+.navleft {
+  float: left;
+  border-right: 1px solid;
+	border-right-color: #558C89;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color:#74AFAD;
+  font-size: 30px;
+}
+
+.nav a {
+  display: block;
+  color: #ECECEA;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #FAFAFA;
+}
+
+li a.active {
+  background-color: #689793;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 30px;
+  border-right: 1px solid;
+  border-right-color: #558C89;
+  outline: none;
+  color: #ECECEA;
+  padding: 0;
+  margin: 0;
+  background-color: #74AFAD;
+}
+
+.dropdown:hover .dropbtn {
+  color: #FAFAFA;
+}
+
+/*This is the style for the content shown once you hover on Our Computers*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #74AFAD;
+  min-width: 160px;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #ECECEA;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 21.5px;
+}
+
+.dropdown-content a:hover {
+  color: #FFFFFF;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.content {
+  width: auto;
+  height:auto;
+  margin: 0px;
+  padding: 15px;
+  padding-top: 5px;
+  background-color: #ECECEA;
+}
+
+#p1 {
+  text-align: center;
+  color: #924400;
+  font-size: 40px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #B65900;
+  font-size: 20px;
+}
+
+/*This means that the form will stay inside the content*/
+* {
+  box-sizing: border-box;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  color: #D77200;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color: #B65900;
+  font-size: 18px;
+}
+
+select, option {color: #D77200;}
+
+input::placeholder {color: #D77200;}
+
+input[type=submit] {
+  background-color: #D77200;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer; /*This determines that the submit button will function once it is clicked on with the pointer*/
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #B65900;
+}
+
+/*This is the style for the content on the left side of the screen*/
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/*This is the style for the content on the right side of the screen*/
+.col-75 {
+  float: right;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;}
+
+.footer {
+  width: auto;
+  background-color: #ECECEA;
+  margin:0px;
+  height: auto;
+  padding: 15px;
+  border-top: 1px solid #FFFFFF;
+  color: #B65900;}
+
+h3 {
+  color: #924400;
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
