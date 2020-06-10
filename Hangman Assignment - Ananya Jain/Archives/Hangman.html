@@ -1,0 +1,331 @@
+<html>
+	<head>
+    	<title>Hangman</title>
+		<link href="../CSS/hangmanStyle.css" rel="stylesheet" type="text/css">
+	</head>
+    <body>
+    <div class="container">
+
+	<div class="header">
+  		<img src="../Images/MasterTechLogoPNG2.png">
+	</div>
+
+	<div class="nav, nav a">
+  		<ul>
+    		<li class="navleft"><a href="../Index.html">Home</a></li>
+    		<li class="navleft"><a href="AboutUs.html">About Us</a></li>
+    		<li class="navleft"><a href="Instructions.html" >Instructions</a></li>
+    		<li class="navleft"><a href="Hangman.html" class="active">Hangman Game</a></li>
+    		<li class="navright"><a href="ContactUs.html">Contact Us</a></li>
+  		</ul>
+	</div>
+
+	<div class="content">
+    	<p id="p1">Ocean Hangman</p>
+        
+        <center>
+        <button onClick="startGame(); createsDashes()" class="buttonOne" id="buttonOne">Start Game</button>
+        <table>
+        	<tr>
+        		<td valign="top" rowspan="2">
+                	<img src="../Images/ImageOriginal.png" style="width:180px;height:230px;" id="picBox">
+                </td>
+                <td valign="top" width="200px"  style="padding-top:11px;">
+                	<p id="lettersPicked">Letters picked: <br><br></p>
+                </td>
+            </tr>
+            <tr>
+            	<td valign="bottom" style="padding-bottom:10px;">
+                	<p id="livesLeft">Lives left: </p>
+                </td>
+        </table>
+        <table>
+            <tr>
+        		<td>
+        			<button onClick="levelOnePlayAgain()" class="buttonOne">Level 1</button>
+       			</td>
+                <td>
+                	<button onClick="levelTwo()" class="buttonOne">Level 2</button>
+                </td>
+                <td>
+                	<button onClick="levelThree()" class="buttonOne">Level 3</button>
+                </td>
+                <td>
+                	<button onClick="showHint()" class="buttonOne">Hint</button>
+                </td>
+            </tr>
+        </table>
+        <p id="dashes"></p>
+        <p id="hint"></p>
+        <p id="buttons"></p>
+        </center>
+		
+        <p id="wins">Wins: </p>
+        <p id="losses">Losses: </p>
+        
+		<script>
+			var userName="";
+					
+			var wordChoice =["FISH", "WAVES", "SHARK", "WHALE", "ALGAE", "SEA", "OCEAN"];
+			var randomNumber = Math.floor(7 * Math.random() + 0); //generates a number from 0 to 7 (amount of words)
+			var word=wordChoice[randomNumber]; //word is a word chosen from the array dependant on the number generated
+			console.log(word)
+			
+			var hints = ["Sea animal that can also be a pet", "An important part of surfing", "Great White ____", "Biggest creature in the ocean", "Common plant in the ocean", "Another word for ocean", "Another word for sea"] //the hints are corresponding to its own word in the array
+			var displayHint = "";
+			
+			var dashes ="";
+			
+			var livesLeft =7;
+			var errorCounter=0;
+			
+			var wins=0;
+			var losses=0;
+			
+			var buttonArray = []; //used to create an array for all the buttons from A-Z
+								
+			function startGame() {
+				userName=prompt("Enter your name to start the game: ");
+				
+				//this creates 6 buttons, you will need 26  
+				for(x=1;x<=26;x++){
+					//use the createElement function to create known HTML elements
+					var btn = document.createElement("BUTTON");
+					var myP = document.createElement("br");
+					
+					//why start at 64? Because the letter 'A' is code 65
+					var letter = String.fromCharCode(x+64);
+					var t = document.createTextNode(letter);
+					
+					buttonArray.push(btn); //puts each letter inside the array
+					
+					//add the text stored in 't' to the our button variable
+					btn.appendChild(t);
+					//give the btn an id to make it easy to access later
+					btn.id =letter;
+					//this is how to add an event to the button -- name the event and
+					//then include the function you want it to perform
+					btn.addEventListener("click", checkLetter);
+					btn.addEventListener("mouseover", changeColor);
+					btn.addEventListener("mouseout", changeColor2);
+					btn.addEventListener("click", disableLetter);
+					//add the btn to the page   
+					document.body.appendChild(btn);
+					//add a line break 'myP' after 13 buttons
+					if (x%10==0) {
+						document.getElementById("buttons").appendChild(myP);
+					}
+					
+					document.getElementById("buttons").appendChild(btn);
+				}
+				document.getElementById("livesLeft").innerHTML+=7; //once you start game, the page displays that you have 7 lives
+				document.getElementById("buttonOne").disabled=true; //disables the button "Click to play Hangman" once it is clicked
+			}
+			
+			function createsDashes() {
+				for (i=0; i<=word.length-1; i++) {
+					var characterValue = word.charAt(i);
+					if (characterValue==" ") {
+						dashes += " "; //if the chosen word has a space in it do not add a dash, instead create a space
+					} else {
+						dashes += "_" //for every letter create a dash
+					}
+				}
+				
+				console.log(dashes);
+					
+				document.getElementById("dashes").innerHTML = dashes; //displays the dashes on the screen
+			}
+			
+			function checkLetter(){
+				//this refers to the object that called this function
+				alert("You clicked: " + this.id); 
+				document.getElementById("lettersPicked").innerHTML += this.id;
+				
+				var chosenWord=word;
+				
+				var newWord="";
+				
+				var imageList = ["../Images/ImageOne.png","../Images/ImageTwo.png","../Images/ImageThree.png","../Images/ImageFour.png","../Images/ImageFive.png","../Images/ImageSix.png","../Images/ImageSeven.png"]
+				
+				if (chosenWord.includes(this.id)){
+					for (i=0; i<chosenWord.length; i++) {
+						var characterValue = chosenWord.charAt(i);
+							if (this.id==characterValue) {
+								newWord +=chosenWord.charAt(i); //if the chosen letter is in the word, add the letter from the chosenWord on to newWord
+							} else {
+								newWord += dashes.charAt(i); //if the chosen letter is not in the word, add a dash to newWord
+							}
+					}
+					dashes=newWord;
+					document.getElementById("dashes").innerHTML = dashes;
+				} else {
+					livesLeft--;
+					errorCounter++
+					if (livesLeft>0) {
+					document.getElementById("picBox").src= imageList[errorCounter-1]; //shows the image corresponding the amount of errors
+					document.getElementById("livesLeft").innerHTML = "Lives left: " + livesLeft;
+					} else if (livesLeft<=0){
+						document.getElementById("picBox").src= imageList[6];
+						document.getElementById("livesLeft").innerHTML = "You lost. Please Try Again.";
+					}
+				}
+				
+				if(dashes==word) {
+					wins++
+					document.getElementById("wins").innerHTML = "Wins: " + wins;
+					
+					//disables every letter after winning
+					for(x=0;x<buttonArray.length; x++) {
+        				buttonArray[x].disabled = true;
+        				buttonArray[x].style.backgroundColor="#99bbff";
+      				}
+				}
+				
+				if (livesLeft==0) {
+					losses++
+					document.getElementById("losses").innerHTML = "Losses: " + losses;
+					
+					//disables every letter after losing
+					for(x=0;x<buttonArray.length; x++) {
+        				buttonArray[x].disabled = true;
+        				buttonArray[x].style.backgroundColor="#99bbff";
+      				}
+				}
+			}
+			
+			function changeColor(){
+				this.style.backgroundColor= "#99bbff"; //changes the colour to a darker one to show that you are hovering on it
+			}
+			
+			function changeColor2(){
+				this.style.backgroundColor= "#ccddff"; //changes the colour back to its original when you stop hovering on it
+            }
+			
+			function disableLetter() {
+				this.disabled = true;
+				this.style.backgroundColor="#99bbff"; //disables the letter once it is used
+			}
+				
+			function showHint() {
+				displayHint = hints[randomNumber]; //the hint gets chosen through the random number which is the same as the one for choosing the word
+				document.getElementById("hint").innerHTML = "Hint: " + displayHint;
+				console.log(displayHint);
+			}
+					
+			function levelOnePlayAgain() {
+				for(x=0;x<buttonArray.length; x++){
+					buttonArray[x].disabled = false; //goes through the array and undisables every letter
+					buttonArray[x].style.backgroundColor="#ccddff"
+				}
+				
+				livesLeft=7; //resets the amount of lives
+				errorCounter = 0; //resets the amount of errors
+				
+				document.getElementById("lettersPicked").innerHTML = "Letters picked: "; //resets the letters picked
+				document.getElementById("livesLeft").innerHTML = "Lives left: 7"; //resets the lives left
+				document.getElementById("picBox").src = "../Images/ImageOriginal.png" //resets to original picture
+				
+				wordChoice =["FISH", "WAVES", "SHARK", "WHALE", "ALGAE", "SEA", "OCEAN"];
+				
+				//chooses a new random number and word
+				randomNumber = Math.floor(7 * Math.random() + 0);
+				word=wordChoice[randomNumber];
+				console.log(word);
+				
+				//creates new dashes for the new word
+				dashes="";
+				createsDashes();	
+				document.getElementById("dashes").innerHTML = dashes;
+				
+				hints = ["Sea animal that can also be a pet", "An important part of surfing", "Great White ____", "Biggest creature in the ocean", "Common plant in the ocean", "Another word for ocean", "Another word for sea"]
+				
+				//picks the new hint corresponding to the word
+				displayHint = hints[randomNumber];
+				console.log(displayHint);
+				document.getElementById("hint").innerHTML = "";
+			}
+			
+			//PLAY AND/OR REPLAY LEVEL 2
+    		function levelTwo() { 
+			//This function allows the user to play Level 2, it also allows the user to replay Level 2(play again button)
+        		for(x=0;x<buttonArray.length; x++) {
+        			buttonArray[x].disabled = false;
+        			buttonArray[x].style.backgroundColor="#ccddff";
+      			}
+
+      			//resetting variable values
+      			livesLeft=7; //resets the amount of lives
+				errorCounter = 0; //resets the amount of errors
+				document.getElementById("lettersPicked").innerHTML = "Letters picked: "; //resets the letters picked
+				document.getElementById("livesLeft").innerHTML = "Lives left: 7"; //resets the lives left
+				document.getElementById("picBox").src = "../Images/ImageOriginal.png" //resets to original picture
+
+      			var wordChoice = ["DOLPHIN", "SEAWEED", "CLOWNFISH", "OCTOPUS", "SEASHORE", "JELLYFISH"];
+				
+				hints=["Known to be an intelligent animal", "A main component of sushi", "Nemo is a ______", "Has eight tentacales", "Filled with sand", "SEA ANIMAL THAT CAN STING YOU"];
+
+      			//randomly picking another Level 2 word once again
+      			randomNumber = Math.floor(6 * Math.random() + 0);
+				word=wordChoice[randomNumber];
+				console.log(word);
+
+      			//recreating dashes for the new word that has been picked
+				dashes="";
+      			createsDashes();
+				document.getElementById("dashes").innerHTML = dashes;
+				
+				//getting hint for new word
+				displayHint="";
+				displayHint = hints[randomNumber];
+				console.log(displayHint);
+				document.getElementById("hint").innerHTML = "";
+    		}
+			
+			//PLAY AND/OR REPLAY LEVEL 3
+			function levelThree() { 
+			//This function allows the user to play Level 3, it also allows the user to replay Level 3 (play again button)
+        		for(x=0;x<buttonArray.length; x++) {
+        			buttonArray[x].disabled = false;
+        			buttonArray[x].style.backgroundColor="#ccddff";
+      			}
+
+      			//resetting variable values
+      			livesLeft=7; //resets the amount of lives
+				errorCounter = 0; //resets the amount of errors
+				document.getElementById("lettersPicked").innerHTML = "Letters picked: "; //resets the letters picked
+				document.getElementById("livesLeft").innerHTML = "Lives left: 7"; //resets the lives left
+				document.getElementById("picBox").src = "../Images/ImageOriginal.png" //resets to original picture
+
+      			var wordChoice = ["SEA TURTLE", "CORAL REEF", "SALT WATER", "STAR FISH"];
+				
+				hints=["A reptile in the sea", "The Great Barrier Reef is a ________", "Type of water", "Patrick from SpongeBob Square Pants"];
+
+      			//randomly picking another Level 3 word once again
+      			randomNumber = Math.floor(4 * Math.random() + 0);
+				word=wordChoice[randomNumber];
+				console.log(word);
+
+      			//recreating dashes for the new word that has been picked
+				dashes="";
+      			createsDashes();
+				document.getElementById("dashes").innerHTML = dashes;
+				
+				//getting hint for the new word
+				displayHint="";
+				displayHint = hints[randomNumber];
+				console.log(displayHint);
+				document.getElementById("hint").innerHTML = "";
+    		}
+		</script>
+	</div>
+
+	<div class="footer">
+		<h3>About Us:</h3>
+  		mastertech@gmail.com<br>
+  		613-333-3333
+	</div>
+
+	</div>
+	</body>
+</html> 

@@ -1,0 +1,76 @@
+.container {
+	width: 100%;
+	height: 100%;
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.header {
+	margin: 0px;
+	padding: 0px;
+	height: 575px;
+	background-color: #edf3f7;
+}
+
+h1 {
+	color: #3b8ac4;
+	text-align: center;
+	font-size: 60px;
+}
+
+h3 {
+	color: #4bb4de;
+	text-align: center;
+	font-size: 40px;
+}
+
+img {
+	align: left;
+	margin: 0px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.nav {
+	width: auto;
+	height: 50px;
+	background-color: #edf3f7;
+}
+
+/*This is to seperate the Contact Us from the rest of the information on the website*/
+.navright {
+	float: right;
+	padding-right: 5px;
+}
+
+/*This is to seperate the Contact Us from the rest of the information on the website*/
+.navleft {
+	float: left;
+	border-right: 1px solid;
+	border-right-color: #F5F5F5;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden; /*The navbar will not pass the width of the screen*/
+	background-color: #edf3f7;
+	font-size: 30px;
+}
+
+a {
+	display: block;
+	color: #66a3ff;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: #1a75ff;
+}
+
+li a.active {
+	background-color: #FFFFFF;
+}
