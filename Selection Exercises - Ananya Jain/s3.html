@@ -1,0 +1,90 @@
+<html>
+
+	<head>
+		<title>Selection 3</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 36px;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 25px;
+			}
+			img {
+				border: medium;
+				border-style: solid;
+				border-color: #00B9B9;
+				padding: 10px;
+			}				
+		</style>
+	</head>
+
+	<body>
+    	 <script>
+
+			alert("Welcome to the Zodiac Sign Finder!")
+			
+			document.write("<center><h3>Zodiac Sign Finder</h3></center>");
+			
+			var birthMonth, birthDate;
+			
+			birthMonth=prompt("What is your birth month?");
+			birthDate=prompt("What is your birth date?");
+			
+			var January, February, March, April, May, June, July, August, September, October, November, December;
+			
+			January=Number(1);
+			February=Number(2);
+			March=Number(3);
+			April=Number(4);
+			May=Number(5);
+			June=Number(6);
+			July=Number(7);
+			August=Number(8);
+			September=Number(9);
+			October=Number(10);
+			November=Number(11);
+			December=Number(12);
+
+			if ((birthMonth=="January" && birthDate >=20) || (birthMonth == "February" && birthDate <=18)) {
+				document.write("<center>You are an AQUARIUS.</center>");
+				document.write('<br><center><img src="images for s3/aquarius.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "February" && birthDate >=19) || (birthMonth == "March" && birthDate <=20)) {
+				document.write("<center>You are a PISCES.</center>");
+				document.write('<br><br><center><img src="images for s3/pisces.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "March" && birthDate >=21)|| (birthMonth == "April" && birthDate <=19)) {
+				document.write("<center>You are an ARIES.</center>");
+				document.write('<br><br><center><img src="images for s3/aries.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "April" && birthDate >=20) || (birthMonth == "May" && birthDate <=20)) {
+				document.write("<center>You are a TAURUS.</center>");
+				document.write('<br><br><center><img src="images for s3/taurus.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "May" && birthDate >= 21) || (birthMonth == "June" && birthDate <=20)) {
+				document.write("<center>You are a GEMINI.</center>");
+				document.write('<br><br><center><img src="images for s3/gemini.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "June" && birthDate >= 21) || (birthMonth == "July" && birthDate <=22)) {
+				document.write("<center>You are a CANCER.</center>");
+				document.write('<br><center><img src="images for s3/cancer.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "July" && birthDate >=23) || (birthMonth == "August" && birthDate <=22)) {
+				document.write("<center>You are a LEO.</center>");
+				document.write('<br><br><center><img src="images for s3/leo.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "August" && birthDate >=23) || (birthMonth == "September" && birthDate <=22)) {
+				document.write("<center>You are a VIRGO.</center>");
+				document.write('<br><center><img src="images for s3/virgo.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "September" && birthDate >=23) || (birthMonth == "October" && birthDate <= 22)) {
+				document.write("<center>You are a LIBRA.</center>");
+				document.write('<br><br><center><img src="images for s3/libra.png" height="200" width="250"></center>');
+			} else if ((birthMonth == "October" && birthDate >=23) || (birthMonth == "November" && birthDate <=21)) {
+				document.write("<center>You are a SCORPIO.</center>");
+				document.write('<br><br><center><img src="images for s3/scorpio.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "November" && birthDate >=22) || (birthMonth == "December" && birthDate <= 21)) {
+				document.write("<center>You are a SAGITTARIUS.</center>");
+				document.write('<br><br><center><img src="images for s3/sagittarius.png" height="200" width="200"></center>');
+			} else if ((birthMonth == "December" && birthdate >=22) || (birthMonth == "January" && birthDate <=19)) {
+				document.write("<center>You are a CAPRICORN.</center>");
+				document.write('<br><br><center><img src="images for s3/capricorn.png" height="200" width="200"></center>');
+			}
+
+		</script>
+	</body>
+</html>

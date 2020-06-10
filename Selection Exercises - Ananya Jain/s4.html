@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		<title>Selection 4</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 36px;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			
+			alert("Welcome to leap year finder!")
+			
+			document.write("<center><h3>Leap Year Finder</h3></center>")
+			
+			var year
+
+			year=prompt("Enter a year.");
+			year=Number(year);
+
+			if ((year % 4 == 0) && (year % 100 !=0) || (year % 400 == 0)){
+				document.write("<center>" + year + " is a leap year.</center>");
+			} else if ((year % 4 == 0) && (year % 100 == 0)) {
+				document.write("<center>" + year + " is not a leap year.</center>");
+			} else {
+				document.write("<center>" + year + " is not a leap year.</center>");
+			}
+
+		</script>
+	</body>
+
+</html>

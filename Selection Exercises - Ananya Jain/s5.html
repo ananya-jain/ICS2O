@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Selection 5</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 36px;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+    	<script>
+			alert("Welcome to the Higher-Lower Guessing Game. In this game, you will get 3 tries to correctly guess a number between 1 and 10. If you correctly guess the number on your first try, you win $100 Bayshore Gift Card. If you correctly guess the number on your second try, you win a $50 Roots Gift Card. If you correctly guess the number on your third try you win a $25 Starbucks Gift Card. Guess carefully and good luck!");
+			
+			var randomNumber, inputOne, inputTwo, inputThree;
+			
+			randomNumber=Math.floor(10 * Math.random() + 1);
+			
+			inputOne=prompt("Please enter a number between 1 and 10. Remember you only have 3 tries.")
+			
+			if (inputOne == randomNumber) {
+				alert("Congratulations, you guessed the correct number!")
+				document.write("<center><h3>Higher-Lower Guessing Game</h3>On your first try, you guessed " + inputOne + ".<br>The correct answer is " + randomNumber + ".<br><br>Congratulations! You win a $100 Bayshore Gift Card!" + '<br><img src="images for s5/bayshore gift card.png" height="200" width="300"></center');
+			} else {
+				if (inputOne > randomNumber) {
+					inputTwo=prompt("Your answer is too high. Please enter a lower number.");
+				} else {
+					inputTwo=prompt("Your answer is too low. Please enter a higher number.")
+				} if (inputTwo == randomNumber) {
+					alert("Congratulations, you guessed the correct number!")
+					document.write("<center><h3>Higher-Lower Guessing Game</h3>On your first try, you guessed " + inputOne + ".<br>On your second try, you guessed " + inputTwo + ".<br>The correct answer is " + randomNumber + ".<br><br>Congratulations! You win a $50 Roots Gift Card!" + '<br><img src="images for s5/roots gift card.png" height="300" width="300"></center>');
+				} else {
+					if (inputTwo > randomNumber) {
+						inputThree=prompt("Your answer is too high. Please enter a lower number.");
+					}  else {
+					inputThree=prompt("Your answer is too low. Please enter a higher number.")
+					} if (inputThree == randomNumber) {
+						alert("Congratulations, you guessed the correct number!")
+					document.write("<center><h3>Higher-Lower Guessing Game</h3>On your first try, you guessed " + inputOne + ".<br>On your second try, you guessed " + inputTwo + ".<br><br>On your third try you guessed " + inputThree + ".<br>The correct answer is " + randomNumber + ".<br><br>Congratulations! You win a $25 Starbucks Gift Card!" + '<br><br><img src="images for s5/starbucks gift card.jpg" height="400" width="240"></center>');
+					} else {
+						alert("Unfortunately, you did not guess the correct answer. Better luck next time!");
+						document.write("<center><h3>Higher-Lower Guessing Game</h3>On your first try, you guessed " + inputOne + ".<br>On your second try, you guessed " + inputTwo + ".<br>On your third try, you guessed " + inputThree + ".<br>The correct answer is " + randomNumber + ".<br><br>Unfortunately, you do not win anything. Try again next time.</center>");
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

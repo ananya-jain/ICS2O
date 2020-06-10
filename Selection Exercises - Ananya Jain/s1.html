@@ -1,0 +1,47 @@
+<html>
+
+	<head>
+		<title>Selection 1</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 36px;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script>
+			
+			alert("Welcome to grade calculator!");
+			
+			document.write("<center><h3>Grade Calculator</h3></center>");
+			
+			var grade=prompt("Enter your grade: ");
+			
+			if (grade > 100) {
+				document.write("<center>Invalid grade.</center>");
+			} else if (grade > 79) {
+				document.write("<center>You have a level 4.</center>");
+			} else if (grade > 69) {
+				document.write("<center>You have a level 3.</center>");
+			} else if (grade > 59) {
+				document.write("<center>You have a level 2.</center>");
+			} else if (grade > 49) {
+				document.write("<center>You have a level 1.</center>");
+			} else if (grade > -1) {
+				document.write("<center>You have a level R.</center>");
+			} else if (grade < 0) {
+				document.write("<center>Invalid grade.</center>");
+			}				 
+
+		</script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<html>
+
+	<head>
+		<title>Selection 2</title>
+        
+		<style>
+			h3 {
+				text-align: center;
+			}
+			
+			.answer {
+				position: absolute;
+				top: 33%;
+				left: 46%;
+				color: white;
+			}
+			
+			body {
+				font-family: Verdana, Geneva, sans-serif;
+			}
+		</style>
+	
+    </head>
+
+	<body>
+    
+    	<h3>Magic Eight Ball</h3>
+        
+        <center>
+        	<img src="magic eight ball.png">
+        </center>        
+    
+		<div class="answer">
+			<script>
+
+				alert("Welcome to the Magic Eight Ball!");
+			
+				var yourQuestion, question;
+			
+				yourQuestion=prompt("Ask a question.");
+			
+				question=Math.floor(8 * Math.random() + 1);
+			
+				if (question == 1) {
+				document.write("<center>Most likely.</center>");
+				} else if (question == 2) {
+				document.write("<center>Ask again later.</center>");
+				} else if (question == 3) {
+				document.write("<center>No.</center>");
+				} else if (question == 4) {
+				document.write("<center>Of course.</center>");
+				} else if (question == 5) {
+				document.write("<center>Cannot<br>predict now.</center>");
+				} else if (question == 6) {
+				document.write("<center>It is certain.</center>");
+				} else if (question == 7) {
+				document.write("<center>Better not<br>tell you now.</center>");
+				} else if (question == 8) {
+				document.write("<center>As I see it, yes.</center>");
+				}	
+
+			</script>
+         </div>        
+
+	</body>
+
+</html>

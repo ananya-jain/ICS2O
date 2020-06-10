@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<title>Selection 6</title>
+        <style>
+			h3 {
+				color: #099;
+				font-size: 36px;
+				text-align: center;
+			}
+			body {
+				color: #00B9B9;
+				font-size: 20px;
+				text-align: center;
+			}
+			table {
+				border: medium;
+				border-style: solid;
+				border-color: #00B9B9;
+				font-size: 21px;
+			}
+		</style>
+	</head>
+
+	<body>
+    	<script>
+			alert("Welcome to Math Problem Generator! Here you will be asked 3 addition or subtraction questions. Try to get as many right as possible. Good luck!");
+			
+			/*First question*/
+			/*Creating two random integers between 1 and 15*/
+			
+			var integerOne, integerTwo;
+			
+			integerOne=Math.floor(15 * Math.random() + 1);
+			integerTwo=Math.floor(15 * Math.random() + 1);
+			
+			/*Creating and prompting the question*/
+			var randomOperation, answer, userInput;
+			
+			randomOperation=Math.floor(2 * Math.random() + 1)
+			
+			if (randomOperation == 1) {
+				userInput=prompt("What is " + integerOne + " + " + integerTwo + "?");
+				answer=(integerOne + integerTwo);
+			} else if (randomOperation == 2) {
+				userInput=prompt("What is " + integerOne + " - " + integerTwo + "?");
+				answer=(integerOne - integerTwo);
+			}
+			
+			/*Checking if user is correct*/
+			
+			if (userInput == answer) {
+				alert("You are correct!")
+			} else {
+				alert("Sorry, you are incorrect. Your answer is " + userInput + ". The correct answer is " + answer + ".");
+			}
+			
+			/*Second question*/
+			/*Creating two random integers between 1 and 15*/
+			var integerThree, integerFour;
+			
+			integerThree=Math.floor(15 * Math.random() + 1);
+			integerFour=Math.floor(15 * Math.random() + 1);
+			
+			/*Creating and prompting the question*/
+			var randomOperation2, answer2, userInput2;
+			
+			randomOperation2=Math.floor(2 * Math.random() + 1)
+			
+			if (randomOperation2 == 1) {
+				userInput2=prompt("What is " + integerOne + " + " + integerTwo + "?");
+				answer2=(integerOne + integerTwo);
+			} else if (randomOperation2 == 2) {
+				userInput2=prompt("What is " + integerOne + " - " + integerTwo + "?");
+				answer2=(integerOne - integerTwo);
+			}
+			
+			/*Checking if user is correct*/
+			
+			if (userInput2 == answer2) {
+				alert("You are correct!")
+			} else {
+				alert("Sorry, you are incorrect. Your answer is " + userInput2 + ". The correct answer is " + answer3 + ".");
+			}
+			
+			/*Third question*/
+			/*Creating two random integers between 1 and 15*/
+			var integerFive, integerSix;
+			
+			integerFive=Math.floor(15 * Math.random() + 1);
+			integerSix=Math.floor(15 * Math.random() + 1);
+			
+			/*Creating and prompting the question*/
+			var randomOperation3, answer3, userInput3;
+			
+			randomOperation3=Math.floor(2 * Math.random() + 1)
+			
+			if (randomOperation3 == 1) {
+				userInput3=prompt("What is " + integerOne + " + " + integerTwo + "?");
+				answer3=(integerOne + integerTwo);
+			} else if (randomOperation3 == 2) {
+				userInput3=prompt("What is " + integerOne + " - " + integerTwo + "?");
+				answer3=(integerOne - integerTwo);
+			}
+			
+			/*Checking if user is correct*/
+			
+			if (userInput3 == answer3) {
+				alert("You are correct!")
+			} else {
+				alert("Sorry, you are incorrect. Your answer is " + userInput3 + ". The correct answer is " + answer3 + ".");
+			}
+			
+			/*Final Output*/
+			
+			if ((userInput == answer) && (userInput2 == answer2) && (userInput3 == answer3)) {
+				document.write("<h3>Math Problems Generator</h3>");
+				document.write("Your first answer is " + userInput + ".<br>The correct answer is " + answer + ".");
+				document.write("<br><br>Your second answer is " + userInput2 + ".<br>The correct answer is " + answer2 + ".");
+				document.write("<br><br>Your third answer is " + userInput3 + ".<br>The correct answer is " + answer3 + ".");
+				document.write("<center><br><table><tr><td>You correctly answered all 3 questions! Congratulations, you got 100%!</td></tr></table></center>");
+			} else if ((!(userInput == answer)) && (!(userInput2 == answer2)) && (!(userInput3 == answer3))) {
+				document.write("<h3>Math Problems Generator</h3>");
+				document.write("Your first answer is " + userInput + ".<br>The correct answer is " + answer + ".");
+				document.write("<br><br>Your second answer is " + userInput2 + ".<br>The correct answer is " + answer2 + ".");
+				document.write("<br><br>Your third answer is " + userInput3 + ".<br>The correct answer is " + answer3 + ".");
+				document.write("<center><br><table><tr><td>Unfortunately, you did not correctly answered all 3 questions. You got 0%.</td></tr></table></center>");
+			} else if ((!(userInput == answer) && !(userInput2 == answer2) && (userInput3 == answer3)) || (!(userInput == answer) && (userInput2 == answer2) && !(userInput3 == answer3)) || ((userInput == answer) && !(userInput2 == answer2) && !(userInput3 == answer3))) {
+				document.write("<h3>Math Problems Generator</h3>");
+				document.write("Your first answer is " + userInput + ".<br>The correct answer is " + answer + ".");
+				document.write("<br><br>Your second answer is " + userInput2 + ".<br>The correct answer is " + answer2 + ".");
+				document.write("<br><br>Your third answer is " + userInput3 + ".<br>The correct answer is " + answer3 + ".");
+				document.write("<center><br><table><tr><td>Unfortunately, you answered only 1 question correctly. You got 33%.</td></tr></table></center>");
+			} else if ((!(userInput == answer) && (userInput2 == answer2) && (userInput3 == answer3)) || ((userInput == answer) && !(userInput2 == answer2) && (userInput3 == answer3)) || ((userInput == answer) && (userInput2 == answer2) && !(userInput3 == answer3))) {
+				document.write("<h3>Math Problems Generator</h3>");
+				document.write("Your first answer is " + userInput + ".<br>The correct answer is " + answer + ".");
+				document.write("<br><br>Your second answer is " + userInput2 + ".<br>The correct answer is " + answer2 + ".");
+				document.write("<br><br>Your third answer is " + userInput3 + ".<br>The correct answer is " + answer3 + ".");
+				document.write("<center><br><table><tr><td>You answered only 2 questions correctly. You got 66%.</td></tr></table></center>");
+			}				
+		</script>
+	</body>
+</html>
