@@ -1,0 +1,172 @@
+<html>
+	<head>
+    	<title>For Loop Exercises - Ananya Jain</title>
+        <style>	
+			body {
+				background-color: #f8f8f8;
+				color: #1a8cff;
+				font-size: 18px;
+			}
+			
+			button {
+				border: none;
+				border-radius: 5px;
+  				color: black;
+				width: auto;
+				height: auto;
+				font-size: 14px;
+  				padding: 10px;
+				margin: 3px;
+  				text-align: center;
+  				text-decoration: none;
+  				display: inline-block;
+  				cursor: pointer;
+				transition: 0.2s;
+			}
+						
+			.button {
+				background-color:#1a8cff;
+				color: white;
+			}
+			
+			.button:hover {
+				background-color: #3399ff;
+				color: white;
+			}
+			
+			h3 {
+				color: #0073e6;
+			}
+			
+			h1 {
+				color: #0066cc;
+			}
+			
+			input {
+				background-color: #cce6ff;
+				border: 2px solid #99ccff;
+			}
+			
+			::placeholder {
+				color: #0073e6;
+			}
+		</style>
+    </head>
+   	<body>
+    	<script>
+			//Exercise 1
+			function forCounter1() {
+				var firstNumber = Number(document.getElementById("myInput1a").value);
+				var lastNumber = Number(document.getElementById("myInput1b").value);
+				
+				//increases by one each time
+				for (counter = firstNumber; counter <= lastNumber; counter++) {
+					alert(counter);
+				}
+			}
+			
+			function forCounter2() {
+				var firstNumber = Number(document.getElementById("myInput1a").value);
+				var lastNumber = Number(document.getElementById("myInput1b").value);
+				
+				//only outputs values that are divisible by 2 with no remainder
+				for (counter = firstNumber; counter <= lastNumber; counter++) {
+					if (counter % 2 ==0) {
+					alert(counter);
+					} 
+				}
+			}
+			
+			function forCounter3() {
+				var firstNumber = Number(document.getElementById("myInput1a").value);
+				var lastNumber = Number(document.getElementById("myInput1b").value);
+				
+				//starts with the largest number and decreases by one each time
+				for (counter = lastNumber; counter >= firstNumber; counter--) {
+					alert(counter);
+				}
+			}
+			
+			
+			//Exercise 2
+			var sum = 0
+			var input = 0
+			
+			function forSum() {
+				var firstNumber = Number(document.getElementById("myInput2a").value);
+				var lastNumber = Number(document.getElementById("myInput2b").value);
+				
+				//every time the loops runs, the input increases by 1 starting from the first number to the last number inputed by the user. The sum changes as it adds the previous sum and the new input. 
+				for (counter = firstNumber; counter<=lastNumber; counter++) {
+					input = Number(counter);
+					sum = sum + input;
+				}
+				
+				alert("Your sum is " + sum);
+			}
+			
+			//Exercise 3
+			function forNumWords () {
+				var userSentence = document.getElementById("myInput3").value;
+				var wordCount = 0;
+				var totalWordCount = 0;
+				
+				//the loop is restricted to run for the length of the sentence
+					for (i=0; i<userSentence.length; i++) {
+						
+						//these two variables check for the character value at a certain position. The second one outputs the value for the consecutive position.
+						var characterValue1 = userSentence.charAt(i);
+						var characterValue2 = userSentence.charAt(i+1);
+							if (characterValue1 == " ") {
+								wordCount++;
+								
+								//if there are two spaces beside each other if does not count it as a word, as it substracts the word count by 1
+								if ((characterValue1 == " ") && (characterValue2 == " ")) {
+									wordCount--;
+								}
+							}
+						totalWordCount = wordCount + 1; //this adds 1 to the word count because for every space there are 2 words
+					}
+					
+					//if there is a space at the end of the sentence, it does not increase the total word count
+					if (userSentence.charAt(userSentence.length - 1) == " ") {
+						totalWordCount--;
+					}
+					
+					//if there is a space at the start of the sentence, it does not increase the total word count
+					if (userSentence.charAt(0) == " ") {
+						totalWordCount--;
+					}
+				alert("The total number of words is " + totalWordCount);
+			}
+		</script>
+        
+        <h1>For Loop Exercises</h1>
+        
+        <h3>Exercise 1 (For Counter)</h3>
+        First Number:
+        <input id="myInput1a" placeholder="Enter the first number in the range" size="30"><br><br>
+        
+        Second Number:
+        <input id="myInput1b" placeholder="Enter the second number in the range" size="30"><br><br>
+       
+        <button onClick="forCounter1()" class="button">Every Number</button>
+        <button onClick="forCounter2()" class="button">Even Numbers</button>
+        <button onClick="forCounter3()" class="button">Every Number in Reverse</button><br><br>
+        
+        <h3>Exercise 2 (For Sum)</h3>
+        First Number:
+        <input id="myInput2a" placeholder="Enter the start value"><br><br>
+        
+        Second Number:
+        <input id="myInput2b" placeholder="Enter your end value"><br><br>
+        
+        <button onClick="forSum()" class="button">Exercise 2</button><br><br>
+        
+        <h3>Exercise 3 (For Num Words)</h3>
+        Input:
+        <input id="myInput3" placeholder="Enter your sentence"><br><br>
+        
+ 		<button onClick="forNumWords()" class="button">Exercise 3</button><br><br>
+    </body>
+</html>

@@ -1,0 +1,208 @@
+<html>
+	<head>
+    	<title>While Loop Exercises - Ananya Jain</title>
+        <style>	
+			body {
+				background-color: #f8f8f8;
+				color: #1a8cff;
+				font-size: 18px;
+			}
+			
+			button {
+				border: none;
+				border-radius: 5px;
+  				color: black;
+				width: auto;
+				height: auto;
+				font-size: 14px;
+  				padding: 10px;
+				margin: 3px;
+  				text-align: center;
+  				text-decoration: none;
+  				display: inline-block;
+  				cursor: pointer;
+				transition: 0.2s;
+			}
+						
+			.button {
+				background-color:#1a8cff;
+				color: white;
+			}
+			
+			.button:hover {
+				background-color: #3399ff;
+				color: white;
+			}
+			
+			h3 {
+				color: #0073e6;
+			}
+			
+			h1 {
+				color: #0066cc;
+			}
+			
+			input {
+				background-color: #cce6ff;
+				border: 2px solid #99ccff;
+			}
+			
+			::placeholder {
+				color: #0073e6;
+			}
+		</style>
+    </head>
+   	<body>
+    	<script>
+			//Exercise 1 (Password Checker)
+			function passwordChecker() {
+				var secretPassword = "pizza";
+				
+				var userGuess = document.getElementById("myInput1").value;
+				
+				var finished = false
+				
+					while (!finished) {
+						if (userGuess == secretPassword) {
+							alert("Yay, you guessed the secret password!");
+							finished = true;
+						} else {
+							alert("Try again")
+							var newGuess = prompt("Please, enter your new guess. Hint: It is food");
+						}
+						
+						userGuess = newGuess;
+					}				
+			}
+		
+			//Exercise 2 (Letters)
+			function letterCounter() {
+				var userSentence = document.getElementById("myInput2").value;
+				
+				var finalSentence = userSentence.toLowerCase(); //This allows the user to input Upper Case letters
+				var i = finalSentence.length; //The while loop will only run for the length of the sentence
+				
+				var letterCount = 0;
+					
+					while (i--) {
+						var characterValue = finalSentence.charCodeAt(i);
+						
+						//This means that the letterCount will only increase if the character is a letter
+						if ((characterValue >=97) && (characterValue <=122)) {
+							letterCount++;
+						}
+					}
+				
+				alert("The total number of letters is " + letterCount);
+			}
+			
+			//Exercise 3(Hacker Speak)
+			function sentenceConverter() {
+				var userSentence = document.getElementById("myInput3").value;
+				
+				var finalSentence = userSentence.toLowerCase(); //This allows the user to input Upper Case letters
+				var i = finalSentence.length; //The while loop will only run for the length of the sentence
+				
+					while (i--) {
+						var characterValue = finalSentence.charAt(i);
+						
+						if (characterValue = "a") {
+							var outputSentence = finalSentence.replace("a",4);
+							finalSentence = outputSentence; //As the sentence passes through each if statement and loop, it will store a new value for finalSentence, so that next time it changes the new finalSentence
+						} 
+						
+						if (characterValue = "e") {
+							var outputSentence = finalSentence.replace("e",3);
+							finalSentence = outputSentence;
+						} 
+						
+						if (characterValue = "i") {
+							var outputSentence = finalSentence.replace("i",1);
+							finalSentence = outputSentence;
+						} 
+						
+						if (characterValue = "o") {
+							var outputSentence = finalSentence.replace("o",0);
+							finalSentence = outputSentence;
+						}
+					}
+				
+				alert("Your final sentence: " + outputSentence);
+			}
+			
+			//Exercise 4 (Pig Latin)
+			function pigLatinConverter() {
+				var userWord = document.getElementById("myInput4").value;
+				
+				var finalWord = userWord.toLowerCase();
+				
+				var length = finalWord.length;
+				
+				console.log(length);
+				
+					while (length--) {
+						var characterValue = finalWord.charAt(0);
+						
+						if ((characterValue=="a")||(characterValue=="e")||(characterValue=="i")||(characterValue=="o")||(characterValue=="u")) {
+							alert(finalWord + "ay");
+							length = 0
+						} else if ((!(characterValue=="a"))||(!(characterValue=="e"))||(!(characterValue=="i"))||(!(characterValue=="o"))||(!(characterValue=="u"))) {
+							alert(finalWord.substring(1) + finalWord.substring(0,1) + "ay");
+							length = 0
+						} 
+					}
+			}
+			
+			function pigLatinConverter2() {
+				var userInput = document.getElementById("myInput4").value;
+				var userSentence = userInput.toLowerCase();
+				
+				var sentenceWords = userSentence.split(" "); //Splits the sentence according to the spaces into words
+				
+				var finalOutput = ""; //introducing the variable finalOutput
+					
+					for (i=0; i<=sentenceWords.length-1; i++) {
+						var words = sentenceWords[i]; //stores the value of each word separately
+							
+							if ((words.startsWith("a"))||(words.startsWith("e"))||(words.startsWith("i"))||(words.startsWith("o"))||(words.startsWith("u"))) {
+								var output = (words + "ay");
+							} else {
+								var output = (words.substring(1) + words.substring(0,1) + "ay");
+							}
+							
+						finalOutput += output + " ";//as the loop runs each word gets added onto the finalOutput
+									
+					}
+				alert(finalOutput);//the last alert will be the final sentence
+							
+			}
+		</script>
+        
+        <h1>While Loop Exercises</h1>
+        
+        <h3>Exercise 1 (Password Checker)</h3>
+        Input:
+        <input id="myInput1" placeholder="Enter your guess"><br><br>
+        
+        <button onClick="passwordChecker()" class="button">Exercise 1</button>
+        
+        <h3>Exercise 2 (Letters)</h3>
+        Input:
+        <input id="myInput2" placeholder="Enter a sentence"><br><br>
+        
+        <button onClick="letterCounter()" class="button">Exercise 2</button>
+        
+        <h3>Exercise 3 (Hacker Speak)</h3>
+        Input:
+        <input id="myInput3" placeholder="Enter a sentence"><br><br>
+        
+        <button onClick="sentenceConverter()" class="button">Exercise 3</button>
+        
+        <h3>Exercise 4 (Pig Latin)</h3>
+        Input:
+        <input id="myInput4" placeholder="Enter a word or a sentence"><br><br>
+        
+        <button onClick="pigLatinConverter()" class="button">Exercise 4 (for a word)</button>
+        <button onClick="pigLatinConverter2()" class="button">Exercise 4 (for a sentence)</button>
+    </body>
+</html>
