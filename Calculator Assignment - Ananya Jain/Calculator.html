@@ -1,0 +1,131 @@
+<html>
+	<head>
+    	<title>Functions Calculator Exercise</title>
+        <link rel="stylesheet" type="text/css" href="CSS/style.css">
+	</head>
+
+	<body>
+    	<script>
+			var num1 =0;
+			var num2 =0;
+			var signChoice = "";
+
+			function addNum(num) {
+				document.getElementById("screen").value = document.getElementById("screen").value + num; 
+			}
+			
+			function setSign(sign) {
+				signChoice = sign;
+				num1 = document.getElementById("screen").value; 
+				document.getElementById("screen").value ="";
+			}
+
+			function equalPressed() {
+				num2= document.getElementById("screen").value; 
+				if (signChoice =="+") {
+					document.getElementById("screen").value = Number(num1) + Number(num2);
+				} else if (signChoice == "-") {
+					document.getElementById("screen").value = Number(num1) - Number(num2);
+				} else if (signChoice == "x") {
+					document.getElementById("screen").value = Number(num1) * Number(num2);
+				} else if (signChoice == "/") {
+					document.getElementById("screen").value = Number(num1) / Number(num2);
+				} else if (signChoice == "%") {
+					document.getElementById("screen").value = Number(num1) / 100;
+				} else if (signChoice == "+/-") {
+					document.getElementById("screen").value = Number(num1) * -1;
+				} else if (signChoice == "sin") {
+					document.getElementById("screen").value = Math.sin(Number(num1) * Math.PI / 180);
+				} else if (signChoice == "cos") {
+					document.getElementById("screen").value = Math.cos(Number(num1) * Math.PI / 180);
+				} else if (signChoice == "tan") {
+					document.getElementById("screen").value = Math.tan(Number(num1) * Math.PI / 180);
+				} else if (signChoice == "sin^-1") {
+					document.getElementById("screen").value = (Math.asin(Number(num1))* 180 / Math.PI);
+				} else if (signChoice == "cos^-1") {
+					document.getElementById("screen").value = (Math.acos(Number(num1))* 180 / Math.PI);
+				} else if (signChoice == "tan^-1") {
+					document.getElementById("screen").value = (Math.atan(Number(num1))* 180 / Math.PI);
+				} else if (signChoice == "x²") {
+					document.getElementById("screen").value = Number(num1) * Number(num1);
+				} else if (signChoice == "x³") {
+					document.getElementById("screen").value = Math.pow(Number(num1), 3);
+				} else if (signChoice == "x^y") {
+					document.getElementById("screen").value = Math.pow(Number(num1), Number(num2));
+				} else if (signChoice == "√") {
+					document.getElementById("screen").value = Math.sqrt(Number(num1));
+				} else if (signChoice == "∛") {
+					document.getElementById("screen").value = Math.cbrt(Number(num1));
+				} else if (signChoice == "ª√x") {
+					document.getElementById("screen").value = Math.pow(Number(num1), 1 / Number(num2));
+				} else if (signChoice == "1/x") {
+					document.getElementById("screen").value = 1 / Number(num1);
+				} else if (signChoice == "EXP") {
+					document.getElementById("screen").value = Number(num1) * Math.pow(10, Number(num2));
+				} else if (signChoice == "π") {
+					document.getElementById("screen").value = Math.PI;
+				}
+			} 
+			
+			function deleteButton () {
+				var value = document.getElementById("screen").value
+				document.getElementById("screen").value = value.substr(0, value.length -1)
+			}
+		</script> 
+    	
+        <center>     
+    	<form>
+        <table>
+			<tr>
+            	<td colspan="7" align="center"><input type="text" id="screen" class="screen"/></td>
+            </tr>
+            <tr>
+            	<td><button type="button" onClick="setSign('sin')" id="bOperation" class="buttonOperation">sin</button></td>
+            	<td><button type="button" onClick="setSign('cos')" id="bOperation" class="buttonOperation">cos</button></td>
+            	<td><button type="button" onClick="setSign('tan')" id="bOperation" class="buttonOperation">tan</button></td>
+                <td><button type="button" onClick="setSign('+/-')" id="bOperation" class="buttonOperation">+/-</button></td>
+            	<td><button type="button" onClick="setSign('%')" id="bOperation" class="buttonOperation">%</button></td>
+            	<td><button type="button" onclick="deleteButton()" id="delete" class="buttonOperation">DEL</button></td>
+            	<td><button data-action="clear" class="buttonOperation">AC</button></td>
+           </tr>
+           <tr>
+            	<td><button type="button" onClick="setSign('sin^-1')" id="bOperation" class="buttonOperation">sin<sup>-1</sup></button></td>
+            	<td><button type="button" onClick="setSign('cos^-1')" id="bOperation" class="buttonOperation">cos<sup>-1</sup></button></td>
+            	<td><button type="button" onClick="setSign('tan^-1')" id="bOperation" class="buttonOperation">tan<sup>-1</sup></button></td>
+            	<td><button type="button" onClick="addNum(7)" id="bNum" class="buttonNumber">7</button></td>
+        		<td><button type="button" onClick="addNum(8)" id="bNum" class="buttonNumber">8</button></td> 
+        		<td><button type="button" onClick="addNum(9)" id="bNum" class="buttonNumber">9</button></td>
+            	<td><button type="button" onClick="setSign('/')" id="bOperation" class="buttonOperation">÷</button></td> 
+            </tr>
+            <tr>
+            	<td><button type="button" onClick="setSign('x²')" id="bOperation" class="buttonOperation">x²</button></td>
+            	<td><button type="button" onClick="setSign('x³')" id="bOperation" class="buttonOperation">x³</button></td>
+            	<td><button type="button" onClick="setSign('x^y')" id="bOperation" class="buttonOperation">x<sup>a</sup></button></td>
+            	<td><button type="button" onClick="addNum(4)" id="bNum" class="buttonNumber">4</button></td>
+        		<td><button type="button" onClick="addNum(5)" id="bNum" class="buttonNumber">5</button></td> 
+        		<td><button type="button" onClick="addNum(6)" id="bNum" class="buttonNumber">6</button></td>
+            	<td><button type="button" onClick="setSign('x')" id="bOperation" class="buttonOperation">x</button></td>
+            </tr>
+            <tr>
+            	<td><button type="button" onClick="setSign('√')" id="bOperation" class="buttonOperation">√x</button></td>
+            	<td><button type="button" onClick="setSign('∛')" id="bOperation" class="buttonOperation">∛x</button></td>
+            	<td><button type="button" onClick="setSign('ª√x')" id="bOperation" class="buttonOperation">ª√x</button></td>
+				<td><button type="button" onClick="addNum(1)" id="bNum" class="buttonNumber">1</button></td>
+        		<td><button type="button" onClick="addNum(2)" id="bNum" class="buttonNumber">2</button></td>
+        		<td><button type="button" onClick="addNum(3)" id="bNum" class="buttonNumber">3</button></td>
+            	<td><button type="button" onClick="setSign('-')" id="bOperation" class="buttonOperation">-</button></td>
+            </tr>
+            <tr>
+            	<td><button type="button" onClick="setSign('EXP')" id="bOperation" class="buttonOperation">EXP</button></td>
+            	<td><button type="button" onClick="setSign('π')" id="bOperation" class="buttonOperation">π</button></td>
+            	<td><button type="button" onClick="setSign('1/x')" id="bOperation" class="buttonOperation"><sup>1</sup>/<sub>x</sub></button></td>    
+            	<td><button type="button" onClick="addNum(0)" id="bNum" class="buttonNumber">0</button></td>
+            	<td><button type="button" onClick="addNum('.')" id="bNum" class="buttonNumber">.</button></td>           
+        		<td><button type="button" onClick="equalPressed()" id="bEqual" class="buttonEqual">=</button></td>
+            	<td><button type="button" onClick="setSign('+')" id="bOperation" class="buttonOperation">+</button></td>
+            </tr>
+        </table>
+    	</form>
+        </center>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -19%;
+	margin-top: -12%;
+}
+
+.screen {
+	width: 527px;
+	height: 50px;
+	border-style: solid;
+	border-color: #bfbfbf;
+	color: #b3b3b3;
+	font-size: 28px;
+	padding-left: 7px;
+}
+
+button {
+  	border: none;
+	border-radius: 5px;
+  	color: black;
+	width: 67px;
+	height: 43px;
+	font-size: 16px;
+  	padding: 10px;
+	margin: 3px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	cursor: pointer;
+	transition: 0.2s;
+}
+
+.buttonNumber {
+	background-color: #e6e6ff;
+}
+
+.buttonNumber:hover {
+	background-color: #ccccff;
+}
+
+.buttonOperation {
+	background-color: #ccccff;
+}
+
+.buttonOperation:hover {
+	background-color: #b3b3ff;
+}
+
+.buttonEqual {
+	background-color: #f4f4ff;
+	color: black;
+}
+
+.buttonEqual:hover {
+	background-color: #e6e6ff;
+}
+
