@@ -1,0 +1,312 @@
+<html>
+	<head>
+    	<title>String Exercises - Ananya Jain</title>
+        <style>	
+			body {
+				background-color: #f8f8f8;
+				color: #1a8cff;
+				font-size: 18px;
+			}
+			
+			button {
+				border: none;
+				border-radius: 5px;
+  				color: black;
+				width: auto;
+				height: auto;
+				font-size: 14px;
+  				padding: 10px;
+				margin: 3px;
+  				text-align: center;
+  				text-decoration: none;
+  				display: inline-block;
+  				cursor: pointer;
+				transition: 0.2s;
+			}
+						
+			.button {
+				background-color:#1a8cff;
+				color: white;
+			}
+			
+			.button:hover {
+				background-color: #3399ff;
+				color: white;
+			}
+			
+			h3 {
+				color: #0073e6;
+			}
+			
+			h1 {
+				color: #0066cc;
+			}
+			
+			input {
+				background-color: #cce6ff;
+				border: 2px solid #99ccff;
+			}
+		</style>
+    </head>
+    <body>
+    	<script>
+			var myString;
+			
+			//substring(start,end) or substring(start)
+			function s1() {
+				myString = document.getElementById("myInput").value;
+				document.getElementById("myOutput").value = myString.substring(1);
+			}
+			
+			//indexOf(search,index) or indexOf(search)
+			function s2() {
+				myString = document.getElementById("myInput").value;
+				var word = prompt("What word are you looking for?");
+				var found = myString.indexOf(word);
+					if (found >= 0) {
+						alert("Found at " + found);
+					} else {
+						alert("NOT FOUND");
+					}
+			}
+			
+			//lastIndexOf(search)
+			function s3() {
+				myString = document.getElementById("myInput").value;
+				var word = prompt("What word are you looking for?");
+				var found = myString.lastIndexOf(word);
+					if (found >= 0) {
+						alert("Found at " + found);
+					} else {
+						alert("NOT FOUND");
+					}
+			}
+			
+			//replace(find,replacement)
+			function s4() {
+				myString = document.getElementById("myInput").value;
+				var toReplace = prompt("What do you want to replace?");
+				var replacement = prompt("What is your replacement?");
+				document.getElementById("myOutput").value = myString.replace(toReplace,replacement);
+			}
+			
+			//toLowerCase()
+			function s5() {
+				myString = document.getElementById("myInput").value;
+				var nowLower = myString.toLowerCase();
+				document.getElementById("myOutput").value = nowLower;
+			}
+			
+			//toUpperCase()
+			function s6() {
+				myString = document.getElementById("myInput").value;
+				var nowUpper = myString.toUpperCase();
+				document.getElementById("myOutput").value = nowUpper;
+			}
+			
+			//length
+			function s7() {
+				myString = document.getElementById("myInput").value;
+				document.getElementById("myOutput").value = myString.length;
+			}
+			
+			//includes(search)
+			function s8() {
+				myString = document.getElementById("myInput").value;
+				var toSearch = prompt("What would you like to search?");
+				document.getElementById("myOutput").value = myString.includes(toSearch);
+			}
+			
+			//startsWith(search)
+			function s9() {
+				myString = document.getElementById("myInput").value;
+				var startsWith = prompt("What would you want to check as the beginning?");
+				document.getElementById("myOutput").value = myString.startsWith(startsWith);
+			}
+			
+			//endsWith(search)
+			function s10() {
+				myString = document.getElementById("myInput").value;
+				var endsWith = prompt("What would you want to check as the end?");
+				document.getElementById("myOutput").value = myString.endsWith(endsWith);
+			}
+			
+			//charAt(index)
+			function s11() {
+				myString = document.getElementById("myInput").value;
+				var toSearch = prompt("Which position are you looking for?");
+				document.getElementById("myOutput").value = myString.charAt(toSearch);
+			}
+			
+			//charCodeAt(index)
+			function s12() {
+				myString = document.getElementById("myInput").value;
+				var toSearch = prompt("Which position are you looking for?");
+				document.getElementById("myOutput").value = myString.charCodeAt(toSearch);
+			}
+			
+			//fromCharCode(index)
+			function s13() {
+				myString = document.getElementById("myInput").value;
+				var toSearch = prompt("Which ASCII integer are you looking for?");
+				document.getElementById("myOutput").value = String.fromCharCode(toSearch);
+			}
+			
+			//Exercise 2
+			function vowelExercise() {
+				myString = document.getElementById("myInput2").value;
+				
+				//This allows for users to input both uppper case and lower case
+				myString = myString.toLowerCase();
+				
+					if (myString.startsWith("a")) {
+						document.getElementById("myOutput2").value = myString.substring(1) + "a";
+					} else if (myString.startsWith("e")) {
+						document.getElementById("myOutput2").value = myString.substring(1) + "e";
+					} else if (myString.startsWith("i")) {
+						document.getElementById("myOutput2").value = myString.substring(1) + "i";
+					} else if (myString.startsWith("o")) {
+						document.getElementById("myOutput2").value = myString.substring(1) + "o";
+					} else if (myString.startsWith("u")) {
+						document.getElementById("myOutput2").value = myString.substring(1) + "u";
+					} else {
+						document.getElementById("myOutput2").value = myString + "ly";
+					}
+			}
+			
+			//Exercise 3
+			function userSubstring() {
+				var chosenWord = document.getElementById("myInput3a").value;
+				var chosenSubstring = document.getElementById("myInput3b").value;
+				
+				//Length of the chosen word
+				var wordLength = chosenWord.length;
+				document.getElementById("myOutput3a").value = wordLength;
+				
+				//Starting index of chosen substring
+				var startingIndex = chosenWord.indexOf(chosenSubstring);
+				
+					if (startingIndex>=0) {
+						document.getElementById("myOutput3b").value = startingIndex;
+						
+						//Ending index of chosen substring
+						var substringLength = chosenSubstring.length;
+						var endingIndex = substringLength + startingIndex - 1;
+						document.getElementById("myOutput3c").value = endingIndex;
+					} else {
+						document.getElementById("myOutput3b").value = "NOT FOUND"
+						document.getElementById("myOutput3c").value = "NOT FOUND"
+					}				
+			}
+			
+			//Exercise 4
+			function randomLetterReplacer () {
+				var userWord = document.getElementById("myInput4a").value;
+				var userLetter = document.getElementById("myInput4b").value;
+				
+				//In order to randomize the letters, we have to randamize numbers between from 97 to 123 with equal a specific letter in the alphabet and then convert this number into a letter
+				var asciiRandomLetter = Math.floor(Math.random() * 27) + 97;
+				var randomLetter = String.fromCharCode(asciiRandomLetter);
+				
+				//Only if the word contains the letter chosen by the user, the letter will be remplaced	
+					if (userWord.includes(userLetter)) {
+						document.getElementById("myOutput4").value = userWord.replace(userLetter, randomLetter);
+					} else {
+						document.getElementById("myOutput4").value = "The letter is NOT FOUND";
+					}
+			}
+			
+			//Exercise 5
+			function alphabeticalOrder() {
+				var userFirstWord = document.getElementById("myInput5a").value;
+				var userSecondWord = document.getElementById("myInput5b").value;
+				var userThirdWord = document.getElementById("myInput5c").value;
+				
+				//convert to lower case so that the user can input upper case and there is no effect on the way the code runs
+				var firstWord = userFirstWord.toLowerCase(); 
+				var secondWord = userSecondWord.toLowerCase();
+				var thirdWord = userThirdWord.toLowerCase();
+				
+				//Create a new variable to be able to sort the three words into aplphabetical order
+				var strings = [firstWord, secondWord, thirdWord];
+				strings.sort();
+				
+				document.getElementById("myOutput5").value = strings;
+			}
+		</script>
+        
+        <h1>String Exercises</h1>
+        
+        <h3>String Exercise 1</h3>
+        
+        User Input:
+        <input id="myInput"><br><br>
+        
+        Output:
+        <input id="myOutput"><br><br>
+        <button onClick="s1()" class="button">substring()</button>
+        <button onClick="s2()" class="button">indexOf()</button>
+        <button onClick="s3()" class="button">lastIndexOf()</button>
+        <button onClick="s4()" class="button">replace()</button>
+        <button onClick="s5()" class="button">toLowerCase()</button>
+        <button onClick="s6()" class="button">toUpperCase()</button>
+        <button onClick="s7()" class="button">length</button>
+        <button onClick="s8()" class="button">includes()</button>
+        <button onClick="s9()" class="button">startsWith()</button>
+        <button onClick="s10()" class="button">endsWith()</button>
+        <button onClick="s11()" class="button">charAt()</button>
+        <button onClick="s12()" class="button">charCodeAt()</button>
+        <button onClick="s13()" class="button">fromCharCode()</button><br><br>
+        
+        <h3>String Exercise 2</h3>
+        User Input:
+        <input id="myInput2"><br><br>
+        
+        Output:
+        <input id="myOutput2"><br><br>
+        <button onClick="vowelExercise()" class="button">Exercise 2</button><br><br>
+        
+        <h3>String Exercise 3</h3>
+        Chosen Word:
+        <input id="myInput3a"><br><br>
+        
+        Chosen Substring:
+        <input id="myInput3b"><br><br>
+        
+        Length of chosen word:
+        <input id="myOutput3a"><br><br>
+        
+        Starting index of substring:
+        <input id="myOutput3b"><br><br>
+        
+        Ending index of substring:
+        <input id="myOutput3c"><br><br>
+        <button onClick="userSubstring()" class="button">Exercise 3</button><br><br>
+        
+        <h3>String Exercise 4</h3>
+        Chosen word:
+        <input id="myInput4a"><br><br>
+        
+       	Chosen letter:
+        <input id="myInput4b"><br><br>
+        
+        Output:
+        <input id="myOutput4"><br><br>
+        <button onClick="randomLetterReplacer()" class="button">Exercise 4</button><br><br>
+        
+        <h3>String Exercise 5</h3>
+         
+         First Word:
+         <input id="myInput5a"><br><br>
+         
+         Second Word:
+         <input id="myInput5b"><br><br>
+         
+         Third Word:
+         <input id="myInput5c"><br><br>
+         
+         Output:
+         <input id="myOutput5"><br><br>
+         <button onClick="alphabeticalOrder()" class="button">Exercise 5</button><br><br>         
+	</body>
+</html>
