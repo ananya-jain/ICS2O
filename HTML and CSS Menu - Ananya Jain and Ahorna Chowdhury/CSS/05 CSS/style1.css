@@ -1,0 +1,23 @@
+body {background-color: #9DC2EA;
+	 background-image: url(Background%20Image.jpg);
+    background-repeat: repeat-y;
+    background-position: right;
+    background-attachment: scroll;
+    background-size: 325px 300px;
+	margin-left: 15px;
+	border-style: groove;
+	color: #FFF;} 
+	
+h2 {color:#FFF;
+	text-decoration: underline;
+	text-align: left;
+	font-size: 24px;}
+	
+u {color: #FFF;}
+
+p {text-align:left;
+	font-size: 14px;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #FFF;}
+	
+	  	
